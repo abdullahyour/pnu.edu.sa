@@ -151,7 +151,7 @@
       }
     };
  </script>
-<!-- START: PNU New Student Application Form -->
+  <!-- START: PNU Complete Application Form -->
 <style>
 #applicantBtn {
   display:block;
@@ -167,15 +167,9 @@
   box-sizing:border-box;
   font-size:16px;
 }
-.app-form {
-  background:#fff;
-  border:1px solid rgba(0,0,0,0.08);
-  border-radius:12px;
-  padding:20px;
-  box-shadow:0 8px 25px rgba(0,0,0,0.05);
-  box-sizing:border-box;
-  margin-top:14px;
-}
+#appDrawerWrapper { transition: all .36s ease; max-height:0; overflow:hidden; opacity:0; transform: translateY(-8px); }
+#appDrawerWrapper.open { max-height:5000px; opacity:1; transform: translateY(0); margin-top:14px; }
+.app-form { background:#fff; border:1px solid rgba(0,0,0,0.08); border-radius:12px; padding:20px; box-shadow:0 8px 25px rgba(0,0,0,0.05); box-sizing:border-box; margin-top:14px; }
 .app-form .grid { display:grid; grid-template-columns:1fr 1fr; gap:16px; }
 .app-form .full { grid-column:1 / -1; }
 .app-form label { display:block; font-weight:700; margin-bottom:6px; font-size:14px; }
@@ -186,128 +180,99 @@
 .app-form .btn.primary { background:#4b0082; color:#fff; }
 .app-form .btn.gray { background:#6b7280; color:#fff; }
 .app-form .note { background:#fffbea; padding:12px; border-left:4px solid #f59e0b; border-radius:10px; font-size:13px; }
-.successMsg, .finalMsg { display:none; background:#d4edda; color:#155724; padding:16px; border-radius:12px; margin-top:12px; font-weight:700; text-align:center; font-size:16px; }
+.finalMsg { display:none; background:#d4edda; color:#155724; padding:16px; border-radius:12px; margin-top:12px; font-weight:700; text-align:center; font-size:16px; }
 @media (max-width:980px) { .app-form .grid { grid-template-columns:1fr; } }
 </style>
 
 <button id="applicantBtn">تقديم طالب جديد / New Student Application</button>
 
-<div id="appFormContainer" style="display:none;">
-  <form id="applicantForm" class="app-form grid" enctype="multipart/form-data">
+<div id="appDrawerWrapper">
+  <form id="applicantForm" class="app-form grid" enctype="multipart/form-data" novalidate>
     <input type="hidden" name="_source" value="university_pnu_application">
-    
+
     <div class="full">
       <h3>نموذج تقديم طالب جديد — جامعة الأميرة نورة</h3>
-      <div class="note">املأ الحقول المطلوبة بالعربية والإنجليزية.</div>
+      <div class="note">املأ جميع الحقول المطلوبة حسب البيانات الرسمية للجامعة.</div>
     </div>
 
-    <!-- Personal Info -->
+    <!-- 1. Personal Info -->
     <div class="section full">1. البيانات الشخصية / Personal Information</div>
-    <div><label>الاسم الرباعي (بالعربية)</label><input name="fullNameAr" required></div>
-    <div><label>الاسم الرباعي (بالإنجليزية)</label><input name="fullNameEn" required></div>
-    <div><label>رقم الهوية / ID number</label><input name="idNumber" required></div>
+    <div><label>الاسم الرباعي (بالعربية) <span style="color:#b91c1c">*</span></label><input name="fullNameAr" required></div>
+    <div><label>الاسم الرباعي (بالإنجليزية) <span style="color:#b91c1c">*</span></label><input name="fullNameEn" required></div>
+    <div><label>رقم الهوية / ID number <span style="color:#b91c1c">*</span></label><input name="idNumber" required></div>
+    <div><label>نوع الهوية / ID type <span style="color:#b91c1c">*</span></label>
+      <select name="idType" required>
+        <option value="">اختر / Choose</option>
+        <option value="national">هوية وطنية / National ID</option>
+        <option value="iqama">إقامة / Iqama</option>
+        <option value="passport">جواز سفر / Passport</option>
+      </select>
+    </div>
     <div><label>مكان إصدار الهوية / Place of issue</label><input name="idPlace"></div>
-    <div><label>تاريخ الميلاد</label><input type="date" name="birthDate" required></div>
-    <div><label>الجنس / Gender</label>
+    <div><label>تاريخ الميلاد <span style="color:#b91c1c">*</span></label><input type="date" name="birthDate" required></div>
+    <div><label>الجنس / Gender <span style="color:#b91c1c">*</span></label>
       <select name="gender" required>
         <option value="">اختر / Choose</option>
         <option value="male">ذكر / Male</option>
         <option value="female">أنثى / Female</option>
+        <option value="other">أخرى / Other</option>
       </select>
     </div>
-    <div><label>الجنسية / Nationality</label><input name="nationality" required></div>
+    <div><label>الجنسية / Nationality <span style="color:#b91c1c">*</span></label><input name="nationality" required></div>
 
-    <!-- Contact Info -->
+    <!-- 2. Contact Info -->
     <div class="section full">2. بيانات الاتصال / Contact</div>
-    <div><label>رقم الجوال / Mobile</label><input name="phone" type="tel" placeholder="+9665xxxxxxxx" required></div>
-    <div><label>البريد الإلكتروني / Email</label><input name="email" type="email" required></div>
+    <div><label>رقم الجوال / Mobile <span style="color:#b91c1c">*</span></label><input name="phone" type="tel" placeholder="+9665xxxxxxxx" required></div>
+    <div><label>البريد الإلكتروني / Email <span style="color:#b91c1c">*</span></label><input name="email" type="email" required></div>
     <div class="full"><label>العنوان الوطني / Address</label><input name="address" required></div>
 
-    <!-- Academic Info -->
+    <!-- 3. Academic Info -->
     <div class="section full">3. البيانات الأكاديمية / Academic</div>
-    <div><label>نوع المؤهل الأخير</label>
+    <div><label>نوع المؤهل الأخير <span style="color:#b91c1c">*</span></label>
       <select name="lastQualification" required>
         <option value="">اختر / Choose</option>
         <option value="secondary">ثانوية عامة / Secondary</option>
         <option value="diploma">دبلوم / Diploma</option>
         <option value="bachelor">بكالوريوس / Bachelor</option>
+        <option value="master">ماجستير / Master</option>
+        <option value="phd">دكتوراه / PhD</option>
       </select>
     </div>
-    <div><label>اسم المؤسسة التعليمية / Institution</label><input name="issuingInstitution" required></div>
-    <div><label>البلد المصدر للشهادة / Country</label><input name="degreeCountry" required></div>
+    <div><label>اسم المؤسسة التعليمية / Institution <span style="color:#b91c1c">*</span></label><input name="issuingInstitution" required></div>
+    <div><label>البلد المصدر للشهادة / Country <span style="color:#b91c1c">*</span></label><input name="degreeCountry" required></div>
     <div><label>التخصص / Major</label><input name="major"></div>
-    <div><label>سنة التخرج / Graduation Year</label><input type="number" name="graduationYear" min="1900" max="2100" required></div>
-    <div><label>المعدل / GPA</label><input name="gpa" required></div>
-    <div class="full"><label>رفع شهادة التخرج / Certificate Upload</label><input type="file" name="certificateFile" required></div>
+    <div><label>سنة التخرج / Graduation Year <span style="color:#b91c1c">*</span></label><input type="number" name="graduationYear" min="1900" max="2100" required></div>
+    <div><label>المعدل / GPA <span style="color:#b91c1c">*</span></label><input name="gpa" required></div>
+    <div class="full"><label>رفع شهادة التخرج / Certificate Upload <span style="color:#b91c1c">*</span></label><input type="file" name="certificateFile" required></div>
 
-    <!-- Declarations -->
-    <div class="section full">4. التواقيع والإقرارات / Declarations</div>
-    <div><label>اسم مقدم الطلب / Applicant Name</label><input name="declarantName" required></div>
-    <div><label>التوقيع الإلكتروني / Electronic Signature</label><input name="electronicSignature" required></div>
-
-    <div class="full row-actions">
-      <button type="submit" class="btn primary" style="flex:1;">إرسال الطلب / Submit</button>
-      <button type="button" id="resetAppBtn" class="btn gray">إعادة تعيين</button>
+    <!-- 4. Program & Type -->
+    <div class="section full">4. نوع البرنامج والتقديم / Program & Application Type</div>
+    <div><label>البرنامج الدراسي <span style="color:#b91c1c">*</span></label>
+      <select name="programType" required>
+        <option value="">اختر / Choose</option>
+        <option value="bcs">بكالوريوس علوم حاسبات / BCS</option>
+        <option value="baa">بكالوريوس إدارة أعمال / BAA</option>
+        <option value="beng">بكالوريوس هندسة / BEng</option>
+      </select>
     </div>
-  </form>
-
-  <form id="feeForm" class="app-form grid" style="display:none; margin-top:20px;">
-    <input type="hidden" name="_source" value="university_pnu_fee_proof">
-    <div class="full"><h3>إثبات الرسوم / Payment Proof</h3></div>
-    <div class="full"><label>المبلغ المحوّل / Amount transferred</label><input name="paidAmount" value="1000" readonly></div>
-    <div><label>البنك المحول منه / From Bank</label><input name="fromBank" required></div>
-    <div><label>تاريخ العملية / Transaction Date</label><input type="date" name="transactionDate" required></div>
-    <div><label>رقم مرجع التحويل / Transaction ID</label><input name="transactionId" required></div>
-    <div class="full"><label>رفع إيصال الدفع / Upload Receipt</label><input type="file" name="receipt" required></div>
-    <div class="full row-actions">
-      <button type="submit" class="btn primary" style="flex:1;">إرسال إثبات الدفع / Submit</button>
-      <button type="button" id="resetFeeBtn" class="btn gray">إعادة تعيين</button>
+    <div><label>نوع الدراسة <span style="color:#b91c1c">*</span></label>
+      <select name="studyType" required>
+        <option value="">اختر / Choose</option>
+        <option value="fulltime">دوام كامل / Full-time</option>
+        <option value="parttime">دوام جزئي / Part-time</option>
+      </select>
     </div>
-  </form>
 
-  <div class="finalMsg" id="finalMsg"></div>
-</div>
-
-<script>
-(function(){
-  const applicantBtn = document.getElementById('applicantBtn');
-  const appFormContainer = document.getElementById('appFormContainer');
-  const applicantForm = document.getElementById('applicantForm');
-  const feeForm = document.getElementById('feeForm');
-  const resetAppBtn = document.getElementById('resetAppBtn');
-  const resetFeeBtn = document.getElementById('resetFeeBtn');
-  const finalMsg = document.getElementById('finalMsg');
-
-  function generateUniversityID() { return 'PNU-' + Math.floor(Math.random()*900000+100000); }
-
-  applicantBtn.addEventListener('click', ()=>{ appFormContainer.style.display='block'; applicantBtn.style.display='none'; });
-
-  resetAppBtn.addEventListener('click', ()=>{ applicantForm.reset(); });
-  resetFeeBtn.addEventListener('click', ()=>{ feeForm.reset(); });
-
-  applicantForm.addEventListener('submit', e=>{
-    e.preventDefault();
-    // basic validation
-    const inputs = applicantForm.querySelectorAll('input,select');
-    for(const i of inputs){ if(!i.value){ alert('يرجى تعبئة جميع الحقول المطلوبة'); return; } }
-    // hide application form & show fee
-    applicantForm.style.display='none';
-    feeForm.style.display='grid';
-  });
-
-  feeForm.addEventListener('submit', e=>{
-    e.preventDefault();
-    const inputs = feeForm.querySelectorAll('input');
-    for(const i of inputs){ if(!i.value){ alert('يرجى تعبئة جميع الحقول المطلوبة'); return; } }
-    feeForm.style.display='none';
-    finalMsg.style.display='block';
-    finalMsg.innerHTML = `💚 تم استلام كافة بياناتك بنجاح.<br>سيتم التواصل معك خلال 24 ساعة.<br>رقم الطلب الجامعي: <strong>${generateUniversityID()}</strong>`;
-  });
-})();
-</script>
-<!-- END: PNU New Student Application Form --> 
+    <!-- 5. Tests -->
+    <div class="section full">5. الاختبارات / Tests</div>
+    <div><label>قياس / Qiyas</label><input name="qiyasScore"></div>
+    <div><label>رقم جلوس قياس / Qiyas Seat No.</label><input name="qiyasNo"></div>
+    <div><label>التحصيلي / Tahseeli</label><input name="tahseeliScore"></div>
+    <div><label>رقم جلوس التحصيلي</label><input name="tahseeliNo"></div>
+    <div class="full"><label>اختبار اللغة الإنجليزية (IEL
 </body>
 </html>
+
 
 
 
