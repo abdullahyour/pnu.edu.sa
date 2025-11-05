@@ -154,256 +154,152 @@
 <!DOCTYPE html>
 <html lang="ar">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>جامعة الأميرة نورة - تقديم طلب جديد</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>بوابة القبول - جامعة الأميرة نورة</title>
 
-  <!-- OG tags لظهور جميل عند مشاركة الرابط -->
-  <meta property="og:title" content="جامعة الأميرة نورة - تقديم طلب جديد">
-  <meta property="og:description" content="قدّم طلبك للالتحاق بجامعة الأميرة نورة للعام الدراسي الجديد بسهولة وسرعة عبر موقعنا الرسمي.">
-  <meta property="og:image" content="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTjobnA1f77rkZwN7QZLtyjG5hxRhprlrOVh2EesQplPQ&s=10">
-  <meta property="og:url" content="https://abdullahyour.github.io/pnu.edu.sa/">
-  <meta property="og:type" content="website">
+<!-- Meta tags للظهور عند مشاركة الرابط -->
+<meta property="og:title" content="بوابة القبول - جامعة الأميرة نورة">
+<meta property="og:description" content="سجل دخولك وقدم طلبك للقبول في جامعة الأميرة نورة بسهولة عبر بوابتنا الرسمية.">
+<meta property="og:image" content="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTjobnA1f77rkZwN7QZLtyjG5hxRhprlrOVh2EesQplPQ&s=10">
+<meta property="og:url" content="https://abdullahyour.github.io/pnu.edu.sa/">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="بوابة القبول - جامعة الأميرة نورة">
+<meta name="twitter:description" content="سجل دخولك وقدم طلبك للقبول في جامعة الأميرة نورة بسهولة عبر بوابتنا الرسمية.">
+<meta name="twitter:image" content="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTjobnA1f77rkZwN7QZLtyjG5hxRhprlrOVh2EesQplPQ&s=10">
 
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="جامعة الأميرة نورة - تقديم طلب جديد">
-  <meta name="twitter:description" content="قدّم طلبك للالتحاق بجامعة الأميرة نورة للعام الدراسي الجديد بسهولة وسرعة عبر موقعنا الرسمي.">
-  <meta name="twitter:image" content="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTjobnA1f77rkZwN7QZLtyjG5hxRhprlrOVh2EesQplPQ&s=10">
+<style>
+body { font-family: Arial, sans-serif; background:#f5f5f5; margin:0; padding:0; }
+#applicantBtn { display:block; width:300px; margin:20px auto; padding:12px; border-radius:8px; font-weight:800; cursor:pointer; background:#0b7a36; color:#fff; border:0; font-size:16px; }
+#appDrawerWrapper { transition: all .36s ease; max-height:0; overflow:hidden; opacity:0; transform: translateY(-8px); background:#fefefe; margin:0 20px; border-radius:10px; box-shadow:0 6px 20px rgba(0,0,0,0.1); }
+#appDrawerWrapper.open { max-height:5000px; opacity:1; transform: translateY(0); margin-top:14px; padding:20px; }
+.app-form { box-sizing:border-box; }
+.app-form .grid { display:grid; grid-template-columns:1fr 1fr; gap:14px; }
+.app-form .full { grid-column:1/-1; }
+.app-form label { display:block; font-weight:700; margin-bottom:6px; font-size:14px; }
+.app-form input, .app-form select, .app-form textarea { width:100%; padding:10px; border:1px solid #ccc; border-radius:8px; font-size:14px; box-sizing:border-box; }
+.app-form textarea { min-height:110px; resize:vertical; }
+.app-form .section { border-top:1px dashed #e6e9ef; padding-top:12px; margin-top:8px; font-weight:800; color:#0b7a36; }
+.app-form .row-actions { display:flex; gap:8px; align-items:center; flex-wrap:wrap; margin-top:12px; }
+.app-form .btn { padding:10px 14px; border-radius:8px; cursor:pointer; border:0; font-weight:800; }
+.app-form .btn.primary { background:#0b5fff; color:#fff; }
+.app-form .btn.gray { background:#6b7280; color:#fff; }
+.app-form .note { background:#fffbea; padding:10px; border-left:4px solid #f59e0b; border-radius:8px; font-size:13px; }
+.app-form .small { font-size:13px; color:#6b7280; margin-top:6px; }
 
-  <style>
-    body { font-family: Arial, sans-serif; background:#f3f4f6; margin:0; padding:0; }
-    .login-container { max-width:900px; margin:30px auto; background:#fff; padding:20px; border-radius:12px; box-shadow:0 6px 20px rgba(15,23,42,0.1); }
-    #applicantBtn { display:block; width:100%; padding:12px; background:#0b7a36; color:#fff; border:0; border-radius:8px; font-weight:800; cursor:pointer; margin-bottom:20px; }
-    #appDrawerWrapper { max-height:0; overflow:hidden; transition:all .36s ease; opacity:0; transform:translateY(-8px); }
-    #appDrawerWrapper.open { max-height:5000px; opacity:1; transform:translateY(0); }
-
-    .app-form { background:#fff; border:1px solid #e6e9ef; border-radius:10px; padding:18px; box-shadow:0 6px 20px rgba(15,23,42,0.04); box-sizing:border-box; }
-    .app-form .grid { display:grid; grid-template-columns: 1fr 1fr; gap:14px; align-items:start; }
-    .app-form .full { grid-column: 1 / -1; }
-    .app-form label { display:block; font-weight:700; margin-bottom:6px; font-size:14px; }
-    .app-form input[type=text], .app-form input[type=email], .app-form input[type=tel], .app-form input[type=date], .app-form input[type=number], .app-form select, .app-form textarea, .app-form input[type=file] {
-      width:100%; padding:10px; border:1px solid #e6e9ef; border-radius:8px; font-size:14px; box-sizing:border-box;
-    }
-    .app-form textarea { min-height:110px; resize:vertical; }
-    .app-form .section { border-top:1px dashed #e6e9ef; padding-top:12px; margin-top:8px; font-weight:800; color:#0b7a36; }
-    .app-form .row-actions { display:flex; gap:8px; align-items:center; flex-wrap:wrap; }
-    .app-form .btn { padding:10px 14px; border-radius:8px; cursor:pointer; border:0; font-weight:800; }
-    .app-form .btn.primary { background:#0b5fff; color:#fff; }
-    .app-form .btn.gray { background:#6b7280; color:#fff; }
-    .app-form .copyBtn { padding:8px 10px; border-radius:6px; border:1px solid rgba(0,0,0,0.06); background:#f3f4f6; cursor:pointer; font-weight:700; }
-    .app-form .note { background:#fffbea; padding:10px; border-left:4px solid #f59e0b; border-radius:8px; font-size:13px; }
-    .app-form .small { font-size:13px; color:#6b7280; margin-top:6px; }
-    .form-message { margin-top:8px; font-size:14px; }
-    .confirmation { display:none; background:#d1fae5; padding:20px; border-radius:12px; text-align:center; color:#065f46; font-weight:800; box-shadow:0 6px 20px rgba(15,23,42,0.1); margin-top:20px;}
-    @media (max-width:980px) { .app-form .grid { grid-template-columns: 1fr; } }
-  </style>
+@media(max-width:980px) { .app-form .grid { grid-template-columns:1fr; } #applicantBtn { width:100%; } }
+</style>
 </head>
 <body>
-  <div class="login-container">
-    <button id="applicantBtn">تقديم طلب جديد / New Student Application</button>
-    <div id="appDrawerWrapper">
-      <div class="app-form">
-        <form id="applicantForm" class="grid" enctype="multipart/form-data" novalidate>
-          <input type="hidden" name="_source" value="university_pnu_application">
 
-          <div class="full" style="display:flex; justify-content:space-between; align-items:center; gap:12px;">
-            <h3>نموذج تقديم طالب جديد — جامعة الأميرة نورة</h3>
-            <button type="button" id="closeAppForm" class="btn gray">إغلاق</button>
-          </div>
+<button id="applicantBtn">تقديم طلب جديد / New Student Application</button>
 
-          <div class="section full">1. البيانات الشخصية / Personal Information</div>
-          <div>
-            <label>الاسم الرباعي (بالعربية) / Full name (Arabic) *</label>
-            <input name="fullNameAr" required>
-          </div>
-          <div>
-            <label>الاسم الرباعي (بالإنجليزية) / Full name (English) *</label>
-            <input name="fullNameEn" required>
-          </div>
-          <div>
-            <label>رقم الهوية / ID number *</label>
-            <input name="idNumber" required>
-          </div>
-          <div>
-            <label>نوع الهوية / ID type *</label>
-            <select name="idType" required>
-              <option value="">اختر / Choose...</option>
-              <option value="national">هوية وطنية / National ID</option>
-              <option value="iqama">إقامة / Iqama</option>
-              <option value="passport">جواز سفر / Passport</option>
-            </select>
-          </div>
-          <div>
-            <label>مكان إصدار الهوية / Place of issue</label>
-            <input name="idPlace">
-          </div>
-          <div>
-            <label>تاريخ الميلاد / Date of birth *</label>
-            <input type="date" name="birthDate" required>
-          </div>
-          <div>
-            <label>الجنس / Gender *</label>
-            <select name="gender" required>
-              <option value="">اختر / Choose...</option>
-              <option value="male">ذكر / Male</option>
-              <option value="female">أنثى / Female</option>
-              <option value="other">أخرى / Other</option>
-            </select>
-          </div>
-          <div>
-            <label>الجنسية / Nationality *</label>
-            <input name="nationality" required>
-          </div>
-          <div>
-            <label>البرنامج الدراسي المراد التقديم له / Desired Program *</label>
-            <input name="desiredProgram" required placeholder="اكتب البرنامج الدراسي">
-          </div>
-          <div>
-            <label>نوع الدراسة / Study Type *</label>
-            <select name="studyType" required>
-              <option value="">اختر / Choose...</option>
-              <option value="fulltime">دوام كامل / Full-time</option>
-              <option value="parttime">دوام جزئي / Part-time</option>
-            </select>
-          </div>
-
-          <div class="section full">2. بيانات الاتصال / Contact</div>
-          <div>
-            <label>رقم الجوال / Mobile number *</label>
-            <input name="phone" type="tel" required placeholder="+9665xxxxxxxx">
-          </div>
-          <div>
-            <label>البريد الإلكتروني / Email *</label>
-            <input name="email" type="email" required placeholder="example@mail.com">
-          </div>
-          <div class="full">
-            <label>العنوان الوطني / Full address</label>
-            <input name="address" placeholder="شارع، حي، منزل رقم / Street, district, house no.">
-          </div>
-
-          <div class="section full">3. البيانات الأكاديمية / Academic</div>
-          <div>
-            <label>نوع المؤهل الأخير / Last qualification *</label>
-            <select name="lastQualification" required>
-              <option value="">اختر / Choose...</option>
-              <option value="secondary">ثانوية عامة / Secondary</option>
-              <option value="diploma">دبلوم / Diploma</option>
-              <option value="bachelor">بكالوريوس / Bachelor</option>
-              <option value="master">ماجستير / Master</option>
-              <option value="phd">دكتوراه / PhD</option>
-            </select>
-          </div>
-          <div>
-            <label>اسم المؤسسة التعليمية / Institution name *</label>
-            <input name="issuingInstitution" required>
-          </div>
-          <div>
-            <label>التخصص / Major</label>
-            <input name="major">
-          </div>
-          <div>
-            <label>سنة التخرج / Graduation year *</label>
-            <input type="number" name="graduationYear" min="1900" max="2100" required>
-          </div>
-          <div class="full">
-            <label>مرفقات الشهادة والسجل الأكاديمي (PDF/صور) / Certificates & Transcript *</label>
-            <input type="file" name="certificates" accept="application/pdf,image/*" multiple required>
-          </div>
-
-          <div class="section full">4. إثبات الرسوم / Payment Proof</div>
-          <div>
-            <label>المبلغ المحول / Amount transferred (SAR) *</label>
-            <input name="paidAmount" required>
-          </div>
-          <div>
-            <label>اسم البنك المحول منه / From bank *</label>
-            <input name="fromBank" required>
-          </div>
-          <div>
-            <label>اسم المحول / Sender name *</label>
-            <input name="senderName" required>
-          </div>
-          <div class="full">
-            <label>رفع صورة الإيصال / Upload receipt *</label>
-            <input type="file" name="receipt" accept="image/*,application/pdf" required>
-          </div>
-
-          <div class="full row-actions">
-            <button type="submit" class="btn primary">إرسال الطلب / Submit</button>
-          </div>
-        </form>
+<div id="appDrawerWrapper">
+  <div class="app-form" role="region" aria-label="نموذج تقديم طالب جديد">
+    <form id="applicantForm" class="grid" enctype="multipart/form-data" novalidate>
+      <!-- بيانات الطالب -->
+      <div class="section full">1. البيانات الشخصية / Personal Information</div>
+      <div><label>الاسم الرباعي (بالعربية) *</label><input name="fullNameAr" required></div>
+      <div><label>الاسم الرباعي (بالإنجليزية) *</label><input name="fullNameEn" required></div>
+      <div><label>رقم الهوية / ID number *</label><input name="idNumber" required></div>
+      <div><label>نوع الهوية / ID type *</label>
+        <select name="idType" required>
+          <option value="">اختر / Choose</option>
+          <option value="national">هوية وطنية</option>
+          <option value="iqama">إقامة</option>
+          <option value="passport">جواز سفر</option>
+        </select>
       </div>
-    </div>
+      <div><label>مكان إصدار الهوية / Place of issue</label><input name="idPlace"></div>
+      <div><label>تاريخ الميلاد / Date of birth *</label><input type="date" name="birthDate" required></div>
+      <div><label>الجنس / Gender *</label>
+        <select name="gender" required>
+          <option value="">اختر</option>
+          <option value="male">ذكر</option>
+          <option value="female">أنثى</option>
+          <option value="other">أخرى</option>
+        </select>
+      </div>
+      <div><label>الجنسية / Nationality *</label><input name="nationality" required></div>
 
-    <div id="confirmation" class="confirmation">
-      تم استلام جميع بياناتك بنجاح! سيتم التواصل معك خلال 24 ساعة وسيتم إرسال الرقم الجامعي عبر بريدك الإلكتروني أو واتساب.
-    </div>
+      <!-- بيانات التواصل -->
+      <div class="section full">2. بيانات الاتصال / Contact</div>
+      <div><label>رقم الجوال / Mobile number *</label><input name="phone" type="tel" required placeholder="+9665xxxxxxxx"></div>
+      <div><label>البريد الإلكتروني / Email *</label><input name="email" type="email" required placeholder="example@mail.com"></div>
+      <div class="full"><label>العنوان الوطني / Full address</label><input name="address" placeholder="شارع، حي، منزل رقم"></div>
+
+      <!-- البيانات الأكاديمية -->
+      <div class="section full">3. البيانات الأكاديمية / Academic</div>
+      <div><label>البرنامج الدراسي / Program applying for *</label><input name="desiredProgram" required></div>
+      <div><label>نوع الدراسة / Study type *</label><input name="studyType" required></div>
+      <div><label>آخر مؤهل / Last qualification *</label><input name="lastQualification" required></div>
+      <div><label>المؤسسة التعليمية / Institution *</label><input name="issuingInstitution" required></div>
+      <div><label>سنة التخرج / Graduation year *</label><input type="number" name="graduationYear" required></div>
+      <div><label>المعدل / GPA *</label><input name="gpa" required></div>
+
+      <!-- رفع المستندات -->
+      <div class="full"><label>مرفقات الشهادة والسجل الأكاديمي *</label><input type="file" name="certificates" accept="application/pdf,image/*" multiple required></div>
+
+      <!-- صفحة الدفع -->
+      <div class="section full">4. معلومات الدفع / Payment</div>
+      <div><label>اسم المحول / Sender name *</label><input name="payerName" required></div>
+      <div><label>البنك المحول منه / Bank *</label><input name="payerBank" required></div>
+      <div><label>المبلغ المحول / Amount *</label><input type="number" name="amount" required></div>
+      <div class="full"><label>إيصال التحويل / Receipt *</label><input type="file" name="receipt" accept="image/*,application/pdf" required></div>
+
+      <!-- أزرار الإرسال -->
+      <div class="full row-actions">
+        <button type="submit" class="btn primary">إرسال الطلب / Submit</button>
+        <button type="button" id="resetAppBtn" class="btn gray">إعادة تعيين / Reset</button>
+        <div id="appFormMessage"></div>
+      </div>
+    </form>
   </div>
+</div>
 
-  <script>
-    const applicantBtn = document.getElementById('applicantBtn');
-    const appDrawer = document.getElementById('appDrawerWrapper');
-    const closeBtn = document.getElementById('closeAppForm');
-    const form = document.getElementById('applicantForm');
-    const confirmation = document.getElementById('confirmation');
+<script>
+// فتح وإغلاق النموذج
+const btnOpen = document.getElementById('applicantBtn');
+const drawer = document.getElementById('appDrawerWrapper');
+const form = document.getElementById('applicantForm');
+const msg = document.getElementById('appFormMessage');
+const resetBtn = document.getElementById('resetAppBtn');
 
-    applicantBtn.addEventListener('click', ()=>{ appDrawer.classList.add('open'); });
-    closeBtn.addEventListener('click', ()=>{ appDrawer.classList.remove('open'); });
+btnOpen.addEventListener('click', ()=> drawer.classList.add('open'));
+resetBtn.addEventListener('click', ()=> form.reset());
 
-    form.addEventListener('submit', function(e){
-      e.preventDefault();
-      // تحقق بسيط من وجود البيانات المطلوبة
-      const requiredFields = form.querySelectorAll('[required]');
-      for(const field of requiredFields){
-        if(!field.value){
-          alert('يرجى تعبئة جميع الحقول المطلوبة!');
-          return;
-        }
-      }
-      // إخفاء النموذج
-      appDrawer.classList.remove('open');
-      // إظهار رسالة التأكيد
-      confirmation.style.display = 'block';
-      // يمكن هنا إضافة أي كود إرسال البيانات إلى السيرفر
+// بعد الإرسال، رسالة نجاح ثم صفحة الدفع
+form.addEventListener('submit', (e)=>{
+  e.preventDefault();
+  msg.innerHTML='<div style="color:#065f46;font-weight:700;">تم إرسال بياناتك بنجاح! سيتم مراجعتها.</div>';
+  
+  // محاكاة صفحة الدفع
+  setTimeout(()=>{
+    drawer.innerHTML = `
+      <div class="app-form">
+        <h3>صفحة الدفع / Payment Page</h3>
+        <p>قم برفع إيصال الدفع وسيتم تفعيل طلبك.</p>
+        <input type="file" id="receiptUpload" accept="image/*,application/pdf">
+        <button id="confirmPayment" class="btn primary" style="margin-top:10px;">إرسال الدفع / Submit Payment</button>
+      </div>
+    `;
+    document.getElementById('confirmPayment').addEventListener('click', ()=>{
+      drawer.innerHTML = `
+        <div class="app-form">
+          <h3 style="color:#0b7a36;">تم استلام جميع بياناتك بنجاح!</h3>
+          <p>سيتم إرسال رقمك الجامعي عبر بريدك الإلكتروني أو رقم الجوال خلال 24 ساعة.</p>
+        </div>
+      `;
     });
-  </script>
-<!DOCTYPE html>
-<html lang="ar">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>بوابة القبول - جامعة الأميرة نورة</title>
-
-  <!-- Meta tags for link preview -->
-  <meta property="og:title" content="بوابة القبول - جامعة الأميرة نورة">
-  <meta property="og:description" content="سجل دخولك وقدم طلبك للقبول في جامعة الأميرة نورة بسهولة عبر بوابتنا الرسمية.">
-  <meta property="og:image" content="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTjobnA1f77rkZwN7QZLtyjG5hxRhprlrOVh2EesQplPQ&s=10">
-  <meta property="og:url" content="https://abdullahyour.github.io/pnu.edu.sa/">
-  <meta property="og:type" content="website">
-
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="بوابة القبول - جامعة الأميرة نورة">
-  <meta name="twitter:description" content="سجل دخولك وقدم طلبك للقبول في جامعة الأميرة نورة بسهولة عبر بوابتنا الرسمية.">
-  <meta name="twitter:image" content="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTjobnA1f77rkZwN7QZLtyjG5hxRhprlrOVh2EesQplPQ&s=10">
-
-  <!-- هنا أي ملفات CSS/JS الأساسية -->
-  <style>
-    /* يمكنك نسخ جميع أنماط CSS الخاصة بك هنا كما في الكود السابق */
-  </style>
-</head>
-<body>
-
-  <!-- هنا يظل كود الزر ونموذج تقديم الطلب كما أرسلته سابقاً -->
-  <!-- START: Add New Student button + Application form + Fee proof form -->
-  <!-- انسخ كل الكود السابق للزر والنموذج هنا بدون أي تعديل داخلي -->
-  <!-- END: Add New Student button + Application form + Fee proof form -->
-
+  },2000);
+});
+</script>
+</body>
+                                                    </html>
 </body>
 </html>
-</body>
-              </html>
-</body>
-</html>
+
 
 
 
